@@ -1,0 +1,191 @@
+->1st
+public class Example00 {
+
+	public static void main(String[ ] args) {
+
+	      int x = 5;
+
+	      while (x > 1) {
+
+	          x = x + 1;
+
+	          if (x < 3) {
+
+	               System.out.println("small x");
+
+	          }
+
+	      }
+
+	 }
+}
+output:-small X
+
+->2
+package com.pack;
+class Digit {
+
+    public static void main(String[ ] args) {
+
+                                 int x = 1;
+
+                                 while (x < 10) {
+
+                            if (x > 3) {
+
+                                 System.out.println("big x");
+
+                           }
+                            x++;
+                            System.out.println();
+
+                      }
+
+               }
+
+          }
+output:-
+
+big x
+
+big x
+
+big x
+
+big x
+
+big x
+
+big x
+
+
+3->
+package com.pack;
+
+public class Loop {
+
+        int x = 5;{
+
+                   while (x  > 1) {
+
+                         x = x - 1;
+
+              if (x < 3) {
+
+                    System.out.println("small x");
+
+              }
+
+         }
+                   System.out.println();
+
+   }
+}
+->4th
+package com.pack;
+
+public class Example01 {
+
+	public static void main(String[] args) {
+		System.out.println("Hello World!\nIt's been nice knowing \nyou.\nGoodbye World!");
+
+	}
+
+}
+output:-
+Hello World!
+It's been nice knowing 
+you.
+Goodbye World!
+-5th
+public class Example02 {
+
+	public static void main(String[] args) {
+		for(int i = 1; i <= 5; i++) {
+	    	   for(int j = 1; j <= 5; j++) {
+	    		   System.out.print("*");
+	    	   }
+	    	   System.out.println();
+	       }System.out.println();
+
+	}
+
+}
+output:-
+*****
+*****
+*****
+->6th
+public class Example03 {
+
+	public static void main(String[] args) {
+		 for(int i = 1; i <= 4; i++) {
+	    	   for(int j = 1; j <= 4-i; j++) {
+	    		   System.out.print(" ");
+	    	   }
+	    	   for(int j = 1; j <= i; j++) {
+	    		   
+	    		   System.out.print("* ");
+	    	   }
+	    	   System.out.println();
+	       }System.out.println();
+
+	}
+
+}
+output:- 
+   *
+  * * 
+ * * * 
+* * * *  
+
+7th->
+public class Example04{
+
+    public static void main (String args[ ]) {     
+
+                  String name = "Rank";
+
+                  /* Now let's say hello */
+
+                 System.out.println("Hello + name");
+
+                  }
+
+}
+output:-
+Hello + name
+
+->8th
+public static void main (String[] args)    {
+
+         Integer i = 42;
+
+         String s = (i<40)?"life":(i>50)?"universe":"everything";
+
+         System.out.println(s);
+
+     }
+output:-
+everything
+
+Problem Statement:
+
+What is the output of the following program?
+
+class Hexy {
+
+   
+
+     public static void main (String[] args)    {
+
+         Integer i = 42;
+
+         String s = (i<40)?"life"sadi>50)?"universe":"everything";
+
+         System.out.println(s);
+
+     }
+
+}
+output:-Compilation fails
