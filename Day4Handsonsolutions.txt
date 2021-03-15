@@ -1,0 +1,552 @@
+package com.day4handson;
+public class Eggs {
+	int doX(Long x, Long y) { return 1;}
+
+    int doX(long... x) { return 2;}
+
+    int doX(Integer x, Integer y) { return 3; }
+
+    int doX(Number n, Number m) { return 4; }
+
+   
+
+    public static void main(String[ ] args) {
+
+        new Eggs().go();
+
+    }
+
+ 
+
+    void go() {
+
+        short s = 7;
+
+        System.out.println(doX(s,s) + " ");
+        System.out.println(doX(7,7));
+    }
+
+}
+output:- 4 3
+
+2nd->
+ package com.day4handson;
+
+public class Mixer {
+	Mixer() { }
+
+    Mixer(Mixer m) { m1 = m; }
+
+    Mixer m1;
+
+    public static void main(String[ ] args) {
+
+        Mixer m2 = new Mixer();
+
+        Mixer m3 = new Mixer(m2);
+
+        m3.go();
+
+        Mixer m4 = m3.m1;
+
+        m4.go();
+
+        Mixer m5 = m2.m1;
+
+        m5.go();
+
+    }
+
+    void go() {
+
+        System.out.println("hi ");
+
+    }
+
+}
+
+output:-
+hi hi
+
+->3rd
+String invade(short ships) {
+
+        return " a few";
+
+    }
+
+}
+
+ 
+
+class Defender {   
+
+    public static void main(String[] args) {
+
+        System.out.println(new Alien().invade(7));
+
+    }
+
+output:Compilation failed
+
+->4th
+int x = 5;
+
+    public static void main(String[] args) {
+
+        final Fizz f1 = new Fizz();
+
+        Fizz f2 = new Fizz();
+
+        Fizz f3 = FizzSwitch(f1, f2);
+
+        System.out.println((f1 == f3) + " " + (f1.x == f3.x));
+
+    }
+
+    static Fizz FizzSwitch(Fizz x, Fizz y) {
+
+        final Fizz z = x;
+
+        z.x = 6;
+
+        return z;
+
+    }
+output:-
+true true
+
+->5th
+static final long tooth = 343L;
+
+    static long doIt(long tooth) {
+
+        System.out.print(++tooth + " ");
+
+        return ++tooth;
+
+    }   
+
+    public static void main(String[] args) {
+
+        System.out.print(tooth + " ");
+
+        final long tooth = 340L;
+
+        new Knowing().doIt(tooth);
+
+        System.out.println(tooth);
+
+    }
+output:-
+343 341 340
+
+->6th
+class Bird {   
+
+    { System.out.print("b1 "); }
+
+   
+
+    public Bird() {
+
+        System.out.print("b2 ");
+
+    }
+
+}
+
+ 
+
+class Raptor extends Bird {
+
+    static { System.out.print("r1 "); }
+
+   
+
+    public Raptor() {
+
+        System.out.print("r2 ");
+
+    }
+
+   
+
+    { System.out.print("r3 "); }
+
+   
+
+    static { System.out.print("r4 "); }
+
+}
+
+ 
+
+class Hawk extends Raptor {
+
+    public static void main(String[] args) {
+
+        System.out.print("pre ");
+
+        new Hawk();
+
+        System.out.println("hawk ");
+
+    }
+
+}
+output:-pre r1 r4 b1 b2 r3 r2 hawk
+
+
+->7th
+Which is true? (Choose all that apply.)
+
+a.“X extends Y” is correct if and only if X is a class and Y is an interface.
+b.“X extends Y” is correct if and only if X is an interface and Y is a class.
+c.“X extends Y” is correct if X and Y are either both classes or both interfaces.
+d.“X extends Y” is correct for all combinations of X and Y being classes and/or interfaces.
+
+output:-c
+
+->8th
+
+public Top(String s) {
+
+        System.out.println("B");
+
+    }
+
+   
+
+    public class Bottom2 extends Top {
+
+        public Bootom2(String s) {
+
+            System.out.println("D");
+
+        }
+
+        public static void main(String[] args) {
+
+            new Bottom2("C");
+
+            System.out.println(" ");
+
+        }
+
+    }
+
+output:-
+Compilation fails
+
+
+
+->9th
+class Clidders {
+
+    public final void flipper() {
+
+        System.out.println("Clidder");
+
+    }
+
+}
+
+ 
+
+public class Clidlets  extends Clidders {
+
+    public void flipper() {
+
+        System.out.println("Flip a Clidlet");
+
+        super.flipper();
+
+    }   
+
+    public static void main(String[] args) {
+
+        new Clidlets().flipper();
+
+    }   
+
+}
+output:-
+Compilation fails
+
+->10th
+class Programmer {
+
+    Programmer debug() { return this; }   
+
+ }
+
+ class SCJP extends Programmer {
+
+     // insert code here
+
+}
+output:-Programmer debug() { return this; }
+
+->11th
+class Clidder {
+
+    private final void flipper() {
+
+        System.out.println("Clidder");
+
+    }
+
+}
+
+ 
+
+public class Clidlet  extends Clidder {
+
+    public final void flipper() {
+
+        System.out.println("Clidlet");
+
+    }
+
+    public static void main(String[] args) {
+
+        new Clidlet().flipper();
+
+    }   
+
+}
+output:-
+compilation fails
+
+
+->12th
+Problem Statement:
+
+Given the following:
+
+  i.     interface Base {
+
+ii.         boolean m1 ();
+
+iii.         byte m2(short s);
+
+iv.     }
+
+Which code fragments will compile? (Choose all that apply.)
+
+ 
+
+a)  interface Base2 implements Base { }
+
+b)  abstract class Class2 extends Base {
+
+c)  public boolean m1 ()  { return true; }  }
+
+d)  abstract class Class2 implements Base { }
+
+e)  abstract class Class2 implements Base {
+
+f)  public boolean m1 () { return (true); }  }
+
+g)  class Class2 implements Base {
+
+h)  boolean m1 () { return false; }
+
+i)  byte m2 (short s) { return 42; } }
+ 
+
+Ans:-
+ D and E and F
+
+
+Problem Statement:
+
+Given:
+
+public abstract interface Frobnicate { public void twiddle(String s); }
+
+ 
+
+->13th
+Which is a correct class?
+
+ 
+
+a)  public abstract void twiddle(String s) { }
+
+}
+
+b)  public abstract class Frob implements Frobnicate { }
+
+c)  public class Frob extends Frobnicate {
+
+d)              public void twiddle(Integer i) { }
+
+}
+
+e)  public class Frob implements Frobnicate {
+
+f)             public void twiddle(Integer i) { }
+
+}
+
+g)  public class Frob implements Frobnicate {
+
+h)             public void twiddle(String i) { }
+
+i)             public void twiddle(Integer s) { }
+
+ 
+ans:-B
+
+
+->14th
+Which statement()s) are true? ()Choose all that apply.)
+
+A.HAS-A relationships always rely on inheritance.
+B.HAS-A relationships always rely on instance variables.
+C.HAS-A relationships always require at least two class types.
+D.HAS-A relationships always rely on polymorphism.
+E.HAS-A relationships are always tightly coupled.
+
+ans:-B
+
+
+->15th
+Problem Statement:
+
+Given:
+
+1. class Plant {
+
+2.     String getName() ) { return “plant”; }
+
+3.     Plant getType() ) { return this; }
+
+4. }
+
+5. class Flower extends Plant {
+
+6.     // insert code here
+
+7. }
+
+8. class Tulip extends Flower { }
+output:-A,C,D
+
+->16th
+
+
+
+1.      class Zing {
+
+2.      protected Hmpf h;
+
+3. }
+
+4. class Woop extends Zing {  }
+
+5. class Hmpf { }
+
+ 
+
+Which is true?
+
+A.     Woop IS-A Hmpf and HAS-A zing.
+
+B.     Zing IS-A Woop and HAS-A Hmpf.
+
+C.     Hmpf HAS-A Woop and Woop IS-A Zing.
+
+D.    Woop HAS-A Hmpf and Woop IS-A Zing.
+
+E.     Zing HAS-A Hmpf and Zing IS-A Woop.
+
+ output:-D.    Woop HAS-A Hmpf and Woop IS-A Zing.
+
+
+17th
+Given:
+
+            public class MyOuter {
+
+         public static class MyInner {
+
+                    public static void foo() ) { }
+
+                }
+
+           }
+
+Which, if placed in a class other than MyOuter or MyInner, instantiates an instance of the nested class?
+
+MyOuter.MyInner m = new MyOuter.MyInner() );
+MyOuter.MyInner m2 = new MyInner() );
+MyOuter m = new MyOuter() );
+MyOuter.MyInner mi = m.new MyOuter.MyInner() );
+
+MyInner mi = new MyOuter.MyInner() );
+
+output:-
+
+MyOuter.MyInner m = new MyOuter.MyInner() );
+
+->18th
+What is the output of the following program?
+
+ 
+
+public abstract class AbstractTest {
+
+   
+
+    public int getNum()) {
+
+        return 45;
+
+    }
+
+    public abstract class Bar {
+
+        public int getNum()) {
+
+            return 38;
+
+        }
+
+    }
+
+    public static void main()String[] args) {
+
+        AbstractTest t = new AbstractTest()) {
+
+            public int getNum()) {
+
+                return 22;
+
+            }
+
+        };
+
+        AbstractTest.Bar f = t.new Bar()) {
+
+            public int getNum()) {
+
+                return 57;
+
+            }
+
+        };
+
+        System.out.println()f.getNum()) + " " + t.getNum()));
+
+    }
+
+}
+
+
+output:-
+A. 57 22
+
+

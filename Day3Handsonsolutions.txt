@@ -1,0 +1,445 @@
+->1st
+package handson;
+import java.util.*;
+
+class Venue{
+	String name;
+	String city;
+	Scanner sc=new Scanner(System.in);
+	public void details() {
+	System.out.println("Enter the venue name");
+	name=sc.next();
+	System.out.println("Enter the city name ");
+	city=sc.next();
+	//display();
+	
+}
+public void display() {
+	System.out.println("Venue Details : ");
+	System.out.println("Venue Name : "+ name);
+	System.out.println("City Name : "+ city);
+}
+}
+public class Main {
+
+	public static void main(String[] args) {
+		Venue v=new Venue();
+		v.details();
+		v.display();
+	}
+
+}
+
+
+output:-
+Enter the venue name
+M.A.ChidambaramStadium
+Enter the city name 
+Chennai
+Venue Details : 
+Venue Name : M.A.ChidambaramStadium
+City Name : Chennai
+
+
+->2nd
+package handson;
+import java.util.*;
+class Player{
+	String name;
+	String country;
+	String skill;
+	Player(String name,String country,String skill){
+		this.name=name;
+		this.country=country;
+		this.skill=skill;
+	
+		
+	}
+	public void display() {
+		System.out.println("Player Details : ");
+		System.out.println("Player Name : "+ name);
+		System.out.println("Country Name : "+ country);
+		System.out.println("skill: "+ skill);
+	}
+}
+public class Main1 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the player name ");
+		String name1=sc.next();
+		System.out.println("Enter the country name");
+		String country1=sc.next();
+		System.out.println("Enter the skill");
+		String skill1=sc.next();
+		Player p=new Player(name1,country1,skill1);
+		p.display();
+	}
+
+}
+outputs:-
+Enter the player name 
+MSDhoni
+Enter the country name
+India
+Enter the skill
+AllRounder
+Player Details : 
+Player Name : MSDhoni
+Country Name : India
+skill: AllRounder
+
+
+->3rd
+package handson;
+import java.util.*;
+class Delivery
+{
+	Long over;
+	Long ball;
+	Long runs;
+	String batsman;
+	String bowler;
+	String nonStriker;
+	Delivery(Long over,Long ball,Long runs,String batsman,String bowler,String nonStriker){
+		this.over=over;
+		this.ball=ball;
+		this.runs=runs;
+		this.batsman=batsman;
+		this.bowler=bowler;
+		this.nonStriker=nonStriker;
+	}
+	public void  displayDeliveryDetails()
+	{	
+		System.out.println("Delivery Details : ");
+		System.out.println("Over:" + over);
+		System.out.println("Ball:" + ball);
+		System.out.println("Runs:" + runs);
+		System.out.println("Batsman:"+ batsman);
+		System.out.println("Bowler:"+ bowler);
+		System.out.println("NonStriker:"+ nonStriker);
+	}
+}
+
+public class Main2 {
+	
+	
+	
+public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the over ");
+		Long over=sc.nextLong();
+		System.out.println("Enter the ball ");
+		Long ball=sc.nextLong();
+		System.out.println("Enter the runs ");
+		Long runs=sc.nextLong();
+		System.out.println("Enter the batsman name ");
+		String btname=sc.next();
+		System.out.println("Enter the bowler name ");
+		String bowler=sc.next();
+		System.out.println("Enter the nonstriker name ");
+		String striker=sc.next();
+		Delivery d=new Delivery(over,ball,runs,btname,bowler,striker);
+		d.displayDeliveryDetails();
+
+	}
+
+}
+outputs:
+Enter the over 
+1
+Enter the ball 
+1
+Enter the runs 
+4
+Enter the batsman name 
+MsDhoni
+Enter the bowler name 
+Dalesteyn
+Enter the nonstriker name 
+SureshRaina
+Delivery Details : 
+Over:1
+Ball:1
+Runs:4
+Batsman:MsDhoni
+Bowler:Dalesteyn
+NonStriker:SureshRaina
+
+
+->4th
+package handson;
+
+import java.util.*;
+class Venue1
+{
+	private String name;
+	private String city;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	
+}
+public class Main4 {
+	static String option;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Venue1 v=new Venue1();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the venue name");
+		String venueName=sc.next();
+		v.setName(venueName);
+		System.out.println("Enter the city name");
+		String cityName=sc.next();
+		v.setCity(cityName);
+		System.out.println("Venue Details");
+		System.out.println("Venue Name :"+v.getName()+"\n"+"City Name :"+v.getCity());
+		do
+		{
+		System.out.println("Menu");
+		System.out.println("1.Update Venue Name");
+		System.out.println("2.Update City Name");
+		System.out.println("3.All information Correct/Exit");
+		System.out.println("Type 1 or 2 or 3");
+		int choice=sc.nextInt();
+		switch(choice)
+		{
+		case 1: System.out.println("Enter Venue Name");
+		        String venueupdName=sc.next();
+		        v.setName(venueupdName);
+				System.out.println("Venue Name :"+v.getName()+"\n"+"City Name :"+v.getCity());
+				break;
+		case 2: System.out.println("Enter Venue Name");
+        		String city2=sc.next();
+        		v.setCity( city2);
+        		System.out.println("Venue Name :"+v.getName()+"\n"+"City Name :"+v.getCity());
+        		break;
+		case 3: System.out.println("Venue Name :"+v.getName()+"\n"+"City Name :"+v.getCity());
+		        break;
+		 default :System.out.println("Enter correct choice");
+		
+		 
+		    }
+		 System.out.println("Do u want to made any updation please enter y/Y ");
+		  option=sc.next();
+		}while(option.equals("y")||option.equals("Y"));
+		
+		
+	}
+
+}
+
+
+outputs:-
+
+
+Enter the venue name
+
+GreenParkStadium
+Enter the city name
+
+Kanpur 
+Venue Details
+Venue Name :GreenParkStadium
+City Name :Kanpur
+Menu
+1.Update Venue Name
+2.Update City Name
+3.All information Correct/Exit
+Type 1 or 2 or 3
+2
+Enter Venue Name
+
+Chennai
+Venue Name :GreenParkStadium
+City Name :Chennai
+Do u want to made any updation please enter y/Y 
+y
+Menu
+1.Update Venue Name
+2.Update City Name
+3.All information Correct/Exit
+Type 1 or 2 or 3
+
+
+->6th
+package handson;
+import java.util.*;
+class ExtraType
+{
+	private String name ;
+	private long runs;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public long getRuns() {
+		return runs;
+	}
+	public void setRuns(long runs) {
+		this.runs = runs;
+	} 	
+}
+class Main5 {
+
+	public static void main(String[] args) {
+		 ExtraType e=new  ExtraType();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the extratype details ");
+		// enter input like this --->Wide#;
+		String str=sc.next();
+		System.out.println("Enter runs");
+		long run=sc.nextLong();
+		e.setRuns(run);
+		String []str1=str.split("#",2);
+		for(String word:str1)
+		{
+			e.setName(word);
+		}
+		System.out.println("ExtraType Details ");
+		System.out.println("Extra Type :"+e.getName()+"\n"+"Runs:"+e. getRuns());
+		
+		}
+
+}
+
+output:-
+
+Enter the extratype details 
+Wide#1
+Enter runs
+1
+ExtraType Details 
+Extra Type :1
+Runs:1
+
+->7th
+package handson;
+import java.util.*;
+class Deliveryy
+{
+	private Long over;
+	public Long getOver() {
+		return over;
+	}
+	public void setOver(Long over) {
+		this.over = over;
+	}
+	public Long getBall() {
+		return ball;
+	}
+	public void setBall(Long ball) {
+		this.ball = ball;
+	}
+	public Long getRuns() {
+		return runs;
+	}
+	public void setRuns(Long runs) {
+		this.runs = runs;
+	}
+	public String getBatsman() {
+		return batsman;
+	}
+	public void setBatsman(String batsman) {
+		this.batsman = batsman;
+	}
+	public String getBowler() {
+		return bowler;
+	}
+	public void setBowler(String bowler) {
+		this.bowler = bowler;
+	}
+	public String getNonStriker() {
+		return nonStriker;
+	}
+	public void setNonStriker(String nonStriker) {
+		this.nonStriker = nonStriker;
+	}
+	
+	private Long ball;
+	private Long runs;
+	private String batsman;
+	private String bowler;
+	private String nonStriker;
+	 Deliveryy(Long over, Long ball,Long runs,String batsman,String bowler,String nonStriker)
+	 {
+		 this.over=over;
+		 this.ball=ball;
+		 this.runs=runs;
+		 this.batsman=batsman;
+		 this.bowler=bowler;
+		 this.nonStriker=nonStriker;
+		 
+	 }
+	 Deliveryy()
+	 {
+		 
+	 }
+	
+}
+public class Main7 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 Deliveryy d=new  Deliveryy();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Over");
+		Long over1=sc.nextLong();
+		d.setOver(over1);
+		System.out.println("Enter the ball");
+	    Long ball1=sc.nextLong();
+		d.setBall(ball1);
+		System.out.println("Enter the runs");
+	    Long run1=sc.nextLong();
+		d. setRuns(run1);
+		System.out.println("Enter the batsman name");
+		String batsman1=sc.next();
+		d.setBatsman(batsman1);
+		System.out.println("Enter the bowler name");
+		String bowler1=sc.next();
+		d.setBowler(bowler1);
+		System.out.println("Enter the nonStriker name");
+		String nonstrike=sc.next();
+		d.setNonStriker(nonstrike);
+		Deliveryy de=new Deliveryy(over1,ball1,run1,batsman1,bowler1,nonstrike);
+		System.out.println("Over :"+de.getOver()+"\n"+"Ball :"+de.getBall()+"\n"+"Runs :"+de.getRuns()
+		          +"\n"+"Batsman Name:"+de.getBatsman()+"\n"+"Bowler:"+de.getBowler()+"\n"+"NonStriker:"+de.getNonStriker());
+		
+
+	}
+
+}
+
+output:-
+Enter the Over
+1
+Enter the ball
+1
+Enter the runs
+4
+Enter the batsman name
+msdhoni
+Enter the bowler name
+dalesteyn
+Enter the nonStriker name
+sureshraina
+Over :1
+Ball :1
+Runs :4
+Batsman Name:msdhoni
+Bowler:dalesteyn
+NonStriker:sureshraina
+
+

@@ -1,0 +1,414 @@
+->1st
+
+
+package handson5;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
+class Main{
+	public static boolean validDate(String strdate) {
+		DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+		Date BOD = null;
+		df.setLenient(false);
+		try {
+			BOD = df.parse(strdate);
+			System.out.println("valid");
+			return true;
+			
+		}
+		catch(Exception e) {
+			System.out.println("invalid");
+			return false;
+		}
+	}
+}
+
+public class Validation1 {
+
+	public static void main(String[] args) {
+		System.out.println("enter date");
+		Scanner sc =new Scanner(System.in);
+		String date=sc.nextLine();
+		
+		//String date= "12/12/2021";
+		Main.validDate(date);
+
+	}
+
+}
+outputs:-
+Enter date
+24/05/2009
+invalid
+
+Enter date
+01-06-2008
+valid
+
+->2nd
+
+
+package handson5;
+import java.util.Scanner;
+class Main1{
+	static boolean validateCity(String strcity) {
+		int len=strcity.length(),flag=0;
+		//checking for first two characters
+		boolean f1=Character.isLetter(strcity.charAt(0)); 
+		boolean f2=Character.isLetter(strcity.charAt(1));
+		//checking for last two letters
+		boolean l1=Character.isLetter(strcity.charAt(len-1));
+		boolean l2=Character.isLetter(strcity.charAt(len-2));
+		//checking middle letters
+		for(int j=2;j<(len-2);j++){
+			if(strcity.charAt(j)!='*') {
+				flag += 1;
+			}
+		}
+		if(f1 == true && f2 == true && flag == 0 && l1 == true && l2 == true)
+		{
+			System.out.println("valid");
+			return true;
+		}
+		else
+		{
+			System.out.println("invalid");
+			return false;
+		}				
+	}
+}
+public class Validation2{
+	public static void main(String[] args) {
+		System.out.println("Enter sample ");
+		Scanner sc =new Scanner(System.in);
+				String str=sc.next();
+		//String s="he**lo";
+		Main1.validateCity(str);
+		}
+}
+Outputs:-
+Enter sample 
+Ch***ai 
+valid
+
+Enter sample 
+Mum**i 
+invalid
+
+->3rd
+
+
+
+package handson5;
+import java.util.Scanner;
+class Main3{
+	static void validatePlayer(String name) {
+		int len=name.length();
+		int count=0;
+		for(int i=1;i<len;i++) {  //starting index of string is 1
+			if(name.charAt(i)=='a' || name.charAt(i)== 'A') {
+				count++;
+			}
+		}
+		if(count %2 != 0 || count ==0) {
+			System.out.println("valid");
+		}
+		else {
+			System.out.println("invalid");
+		}
+	}
+}
+public class Validation3 {
+	public static void main(String[] args) {
+		System.out.println("enter player name");
+		Scanner sc = new Scanner(System.in);
+				String player =sc.nextLine();
+		//String player = "Albie Morkel";
+        Main3.validatePlayer(player);
+	}
+
+}
+outputs:-
+Enter player name
+Albie Morkel
+valid
+Enter player name
+Suresh Raina
+invalid
+
+->4th
+
+
+package handson;
+import java.util.Scanner;
+
+abstract class Shape 
+{
+	abstract public double calculateArea();
+}
+class Circle extends Shape
+{
+	private float radious;
+
+	 public double calculateArea()
+	 {
+		 double a = (3.14)*radious*radious;
+			radious=(float)a;
+		 
+		 return radious;
+	 }
+	//public float getRadious() {
+	//	return radious;
+	//}
+	public void setRadious(float radious) {
+		this.radious = radious;
+	}
+}
+class Rectangle extends Shape
+{
+     private float length;
+     private float breath;
+     private float Area;
+     Rectangle(float w,float h)
+     {
+    	 length=w;
+    	 breath=h;
+    	 Area = length * breath;
+    	 
+     }
+	@Override
+	public double calculateArea() {
+		// TODO Auto-generated method stub
+		return Area;
+	}
+	
+}
+class Triangle extends Shape
+//Area calculation
+{
+	private float base,height,Area;
+	Triangle(float base,float height)
+	{
+		this.base=base;
+		this.height=height;
+		Area= (float)0.5*base*height;
+		
+		
+	}
+
+	@Override
+	public double calculateArea() {
+		// TODO Auto-generated method stub
+		return Area;
+	}
+	
+}
+class Area_Cal {
+
+	public static void main(String[] args) {
+		String option;
+		
+		Scanner sc=new Scanner(System.in);
+		do
+		{
+		System.out.println("Enter the Shape");
+		//sc.next();
+		
+		System.out.println("Enter number for shape");
+		System.out.println("1.Circle");
+		System.out.println("2.Rectangle");
+		System.out.println("3.Triangle");
+		int shape=sc.nextInt();
+		switch(shape)
+		{
+		
+			case 1:	System.out.println("Enter Radious of Circle");
+			float r=sc.nextFloat();
+			Circle c=new Circle();
+			float radious=sc.nextFloat();
+			c.setRadious(radious);
+			System.out.println("Radious of the circle is : "+c.calculateArea());
+			
+			//System.out.println("The Area Of Circle is: "+c.calculateArea());
+			break;
+		
+			case 2: System.out.println("Enter Length and breath of Rectangle");
+			System.out.println("Enter the Length");
+			float l=sc.nextFloat();
+			System.out.println("Enter the Breadth");
+			float b=sc.nextFloat();
+			Rectangle rec=new  Rectangle(l,b);
+			System.out.println("The area of a Rectangle: "+rec.calculateArea());
+			break;
+		
+			case 3:  System.out.println("Enter base and height for triangle"); 
+			System.out.println("Enter the base");
+			float base=sc.nextFloat();
+			System.out.println("Enter the height");
+			float height=sc.nextFloat();
+			Triangle t=new Triangle(base,height);
+			System.out.println("The Area of a Triangle: "+t.calculateArea());
+			break;
+			default : System.out.println("Enter correct number from 123");
+		 
+		}
+		System.out.println("Do u want to repeat press y");
+		option=sc.next();
+		}while(option.equals("y"));
+
+	}
+
+}
+outputs:-
+Enter the Shape
+Enter number for shape
+1.Circle
+2.Rectangle
+3.Triangle
+1
+Enter Radious of Circle
+5
+
+
+5
+Radious of the circle is : 78.5
+Do u want to repeat press y
+y
+Enter the Shape
+Enter number for shape
+1.Circle
+2.Rectangle
+3.Triangle
+2
+Enter Length and breath of Rectangle
+Enter the Length
+100
+Enter the Breadth
+40
+The area of a Rectangle: 4000.0
+Do u want to repeat press y
+y
+Enter the Shape
+Enter number for shape
+1.Circle
+2.Rectangle
+3.Triangle
+
+
+-> part 2 Exception
+
+
+1st program
+
+package handson5;
+import java.util.Scanner;
+public class Exception1{
+public static void main(String[] args) {
+		try {
+			System.out.println("Enter the number of overs");
+			Scanner sc=new Scanner(System.in);
+			int overs=sc.nextInt();
+			int runs[]=new int[overs];
+			System.out.println("Enter the number of runs for each over");
+			for(int i=0;i<overs;i++) {
+				runs[i]=sc.nextInt();
+			}
+			System.out.println("enter the over number ");
+			int number =sc.nextInt();
+			System.out.println(runs[number-1]);
+			}
+		catch(ArrayIndexOutOfBoundsException | NegativeArraySizeException e) {
+			System.out.println(e);
+		}
+		}
+}
+outputs:-
+Enter the number of overs
+3
+Enter the number of runs for each over
+8
+15
+12
+enter the over number 
+2
+15
+
+outputs 2
+
+Enter the number of overs
+3
+Enter the number of runs for each over
+8
+15
+12
+enter the over number 
+4
+java.lang.ArrayIndexOutOfBoundsException: Index 3 out of bounds for length 3
+
+output3
+Enter the number of overs
+
+-1
+java.lang.NegativeArraySizeException: -1
+
+
+->2nd
+
+
+package handson5;
+import java.util.Scanner;
+class CustomException extends Exception{	 
+	public CustomException() {
+	 super();
+	}
+	@Override
+	public String toString() {
+		return "CustomException:InvalidAgeRangeException";
+	}
+}
+public class Exception2 {
+public static void main(String[] args) {
+		try {
+			System.out.println("Enter the player name");
+			Scanner sc = new Scanner(System.in);
+			String name = sc.nextLine();
+			System.out.println("Enter player age");
+			int age = sc.nextInt();
+			if(age <19) {
+				throw new CustomException();
+			}
+			else {
+				System.out.println("details are \n player name "+name+"\nplayer age "+age);
+			}
+			}
+		catch(CustomException e) {
+			System.out.println(e);
+		}
+
+	}
+
+}
+
+
+outputs:-
+
+Enter the player name
+Albie Morkel
+
+Enter player age
+35
+details are 
+ player name Albie Morkel
+player age 35
+
+output2:-
+Enter the player name
+Ishan Kishan
+Enter player age
+16
+CustomException:InvalidAgeRangeException
+
+
+
